@@ -1,0 +1,1 @@
+// Similar structure for medium penalties with increased difficulty

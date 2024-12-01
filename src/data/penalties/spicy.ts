@@ -1,0 +1,1 @@
+// Similar structure for spicy penalties with increased difficulty

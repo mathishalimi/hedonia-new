@@ -1,0 +1,1 @@
+// Similar structure for extreme penalties with increased difficulty

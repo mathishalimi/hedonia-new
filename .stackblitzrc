@@ -1,0 +1,8 @@
+{
+  "installDependencies": true,
+  "startCommand": "npm run dev",
+  "env": {
+    "VITE_API_URL": "http://localhost:3000",
+    "VITE_SOCKET_URL": "ws://localhost:3000"
+  }
+}

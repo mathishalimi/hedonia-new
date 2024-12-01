@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Theme Colors - Vibrant & Solid */
+  --primary: #FF4B6E;
+  --secondary: #7C3AED;
+  --accent-1: #00D4FF;
+  --accent-2: #FFB800;
+  --accent-3: #FF6B6B;
+  --background: #0F172A;
+  --card-bg: #1E293B;
+  --card-bg-secondary: #293548;
+  --animation-duration: 300ms;
+  --font-primary: 'Poppins', sans-serif;
+}
+
+/* Mode-specific themes */
+[data-theme='classic'] {
+  --primary: #FF4B6E;
+  --secondary: #7C3AED;
+  --background: #0F172A;
+}
+
+[data-theme='naughty'] {
+  --primary: #FF6B6B;
+  --secondary: #FF4B6E;
+  --background: #1A0F1F;
+}
+
+[data-theme='riddles'] {
+  --primary: #7C3AED;
+  --secondary: #00D4FF;
+  --background: #0F172A;
+}
+
+[data-theme='trivia'] {
+  --primary: #00D4FF;
+  --secondary: #7C3AED;
+  --background: #1B262C;
+}
+
+[data-theme='duel'] {
+  --primary: #FF4B6E;
+  --secondary: #7C3AED;
+  --background: #0F172A;
+}
+
+@layer base {
+  html, body {
+    @apply h-full overflow-x-hidden;
+  }
+  
+  body {
+    margin: 0;
+    background: var(--background);
+    font-family: var(--font-primary);
+    color: white;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[var(--card-bg)] border border-white/10 backdrop-blur-sm;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .mode-card {
+    @apply transition-all duration-300 transform;
+    background: var(--card-bg);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+  }
+
+  .mode-card:hover {
+    @apply -translate-y-1;
+    background: var(--card-bg-secondary);
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] 
+           text-white font-medium px-6 py-4 rounded-xl
+           hover:opacity-90 active:opacity-80 
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-300 transform
+           hover:scale-[1.02] active:scale-[0.98]
+           shadow-lg text-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--card-bg)] border-2 border-white/20
+           text-white font-medium px-6 py-4 rounded-xl
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-300 transform
+           hover:scale-[1.02] active:scale-[0.98]
+           text-lg;
+  }
+
+  .input-primary {
+    @apply bg-[var(--card-bg)] border-2 border-white/20
+           text-white placeholder-white/50
+           px-6 py-4 rounded-xl text-lg
+           focus:outline-none focus:ring-2 focus:ring-[var(--primary)]
+           transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-transparent bg-clip-text;
+  }
+
+  .active\:scale-95:active {
+    transform: scale(0.95);
+  }
+}
